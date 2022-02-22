@@ -1,0 +1,41 @@
+spring:
+  datasource:
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://124.223.112.64:3306/storage?useUnicode=true&characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false
+    password: admin
+    username: root
+  application:
+    name: storage
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.223.112.64:8111
+        group: SEATA_GROUP
+seata:
+  enabled: true
+  application-id: storage
+  tx-service-group: my_test_tx_group
+  enable-auto-data-source-proxy: true
+  config:
+    type: nacos
+    nacos:
+      namespace:
+      serverAddr: 124.223.112.64:8111
+      group: SEATA_GROUP
+      username: "nacos"
+      password: "nacos"
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      server-addr: 124.223.112.64:8111
+      group: SEATA_GROUP
+      namespace:
+      username: "nacos"
+      password: "nacos"
+server:
+  port: 8030
+
+logging:
+  level:
+    root: info
