@@ -1,0 +1,15 @@
+version: "3.1"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+    #nginx的配置文件存放目录
+      - "./config/nginx.conf:/etc/nginx/nginx.conf"
+    ports:
+      - "8111:80"
+
+networks:
+  nginx:
+    driver: bridge

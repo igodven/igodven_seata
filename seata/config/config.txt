@@ -1,0 +1,16 @@
+##需要推送的配置
+service.vgroupMapping.my_test_tx_group=default
+store.mode=db
+store.db.datasource=druid
+store.db.dbType=mysql
+store.db.driverClassName=com.mysql.jdbc.Driver
+store.db.url=jdbc:mysql://10.0.16.6:3306/seata?useUnicode=true	#！！！！！！！！MySQL的URL
+store.db.user=root	#！！！！！！！！！用户名
+store.db.password=admin	#！！！！！！！！！密码
+store.db.minConn=5
+store.db.maxConn=30
+store.db.globalTable=global_table
+store.db.branchTable=branch_table
+store.db.queryLimit=100
+store.db.lockTable=lock_table
+store.db.maxWait=5000

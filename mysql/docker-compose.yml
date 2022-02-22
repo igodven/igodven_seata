@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  mysql:
+    image: mysql:5.7.5
+    ports:
+      - "3306:3306"
+    volumes:
+    #新建data目录,用于存放数据
+      - "./data:/var/lib/mysql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+
+networks:
+  mysql:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        -
+          subnet: 172.50.0.0/16
