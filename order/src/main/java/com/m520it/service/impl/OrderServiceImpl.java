@@ -42,15 +42,15 @@ public class OrderServiceImpl implements OrderService {
         }
         //商品存储减少
         String s = storageService.storageDecrease(order.getCommodityCode(), order.getCount());
-    //        if ("500".equals(s)) {
-    //            throw new RuntimeException("操作失败");
-    //        }
+            if ("500".equals(s)) {
+                throw new RuntimeException("操作失败");
+            }
 
         //账户资金减少
         String s1 = accountService.accountDecrease(order.getUserId(), order.getMoney());
-//        if ("500".equals(s1)) {
-//            throw new RuntimeException("操作失败");
-//        }
+        if ("500".equals(s1)) {
+            throw new RuntimeException("操作失败");
+        }
 
     }
 }
